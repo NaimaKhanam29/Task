@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Task Management</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+
+    <!-- Registration Card -->
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center text-gray-800">Create an Account</h2>
+        <p class="text-center text-gray-500 mb-6">Sign up to get started</p>
+
+        <!-- Registration Form -->
+        <form action="#" method="POST" class="space-y-4">
+            <!-- Name Input -->
+            <div>
+                <label for="name" class="block text-gray-600 font-medium">Full Name</label>
+                <input type="text" id="name" name="name" required 
+                    class="w-full border border-gray-300 rounded-md p-2 outline-none bg-transparent text-gray-700" 
+                    placeholder="Enter your full name">
+            </div>
+
+            <!-- Age Input -->
+            <div>
+                <label for="age" class="block text-gray-600 font-medium">Age</label>
+                <input type="number" id="age" name="age" required 
+                    class="w-full border border-gray-300 rounded-md p-2 outline-none bg-transparent text-gray-700" 
+                    placeholder="Enter your age">
+            </div>
+
+            <!-- Purpose Selection -->
+            <div>
+                <label for="purpose" class="block text-gray-600 font-medium">Purpose</label>
+                <select id="purpose" name="purpose" required 
+                    class="w-full border border-gray-300 rounded-md p-2 outline-none bg-transparent text-gray-700">
+                    <option disabled selected>Select your purpose</option>
+                    <option value="Student">Student</option>
+                    <option value="Job Holder">Job Holder</option>
+                </select>
+            </div>
+
+            <!-- Email Input -->
+            <div>
+                <label for="email" class="block text-gray-600 font-medium">Email</label>
+                <input type="email" id="email" name="email" required 
+                    class="w-full border border-gray-300 rounded-md p-2 outline-none bg-transparent text-gray-700" 
+                    placeholder="Enter your email">
+            </div>
+
+            <!-- Password Input -->
+            <div>
+                <label for="password" class="block text-gray-600 font-medium">Password</label>
+                <input type="password" id="password" name="password" required 
+                    class="w-full border border-gray-300 rounded-md p-2 outline-none bg-transparent text-gray-700" 
+                    placeholder="Enter your password">
+            </div>
+
+            <!-- Register Button -->
+            <div class="flex justify-center">
+                <button type="submit"
+                    class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200">
+                    Register
+                </button>
+            </div>
+
+            <!-- Login Redirect -->
+            <p class="text-center text-gray-600 text-sm">
+                Already have an account? <a href="login.html" class="text-blue-500 hover:underline">Login</a>
+            </p>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task management system </title>
+    <script src="login.js"></script>
+    <link rel="stylesheet" href="style/pet.css">
+    <!--tailwind-->
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+     <!--daisyUI-->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+<!--Adlam Display-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&display=swap" rel="stylesheet">
+<!--font sora-->
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+ <!-- fontawesome  -->
+ <script src="https://kit.fontawesome.com/98c9c535e9.js" crossorigin="anonymous"></script>
+
+ 
+ 
+</head>
+<body>
+  
+    <header>
+  <div class="navbar bg-base-100">
+    <div class="navbar-start">
+      <div class="dropdown">
+        <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </div>
+        <ul tabindex="0"
+          class="menu menu-sm dropdown-content bg-base-100 text-xl rounded-box z-[1] mt-3 w-52 p-2 shadow">
+          <li><a href="home.html">Home</a></li>
+          <li><a href="FindaTask.html">Find a task</a></li>
+        <li><a href="status.html">Status</a></li>
+        <li><a href="setadate.html">Set a date</a></li>
+        <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <img src="./image/icon.png" alt="" />
+      <a class="text-2xl font-semibold text-[#111111]">Manage<span class="text-[#FFDC26]">Your</span>Tasks</a>
+
+    </div>
+    <div class="navbar-center hidden lg:flex">
+      <ul class="menu menu-horizontal px-1 text-xl">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="FindaTask.html">Find a task</a></li>
+        <li><a href="status.html">Status</a></li>
+        <li><a href="setadate.html">Set a date</a></li>
+        <li><a href="about.html">About Us</a></li>
+
+      </ul>
+    </div>
+    <div class="navbar-end items-center gap-4">
+        <img src="./image/bell.png" alt="" />
+        <img src="./image/search.png" alt="" />
+        <a href="registration.html" class="btn bg-yellow-400 px-6 text-xl normal-case">
+            Registration
+        </a>
+        <a href="login.html" class="btn bg-yellow-400 px-6 text-xl normal-case">
+            Login
+        </a>
+       
+    </div>
+    
+      
+    </div>
+  </div>
+ 
+
+
+
+   
+  
+  
+</header>
+    <main>
+        <main class="flex flex-col items-center mt-10">
+        <!-- baner description-1  -->
+        <section class="container px-6  mx-auto  my-16 flex flex-col">
+          <div class="space-y-4 md:space-y-6 absolute">
+            <h1 class="adlam-display-regular text-2xl md:text-6xl font-medium text-[#111111]" >Manage your task,<br/> without facing <br/>any difficulties</h1>
+            <p
+              class="text-xs md:text-xl text-[#111111] font-light w-[65%] md:w-[50%]"
+            >
+            Create To-do Lists. To-do lists may seem basic,Prioritize tasks,Schedule tasks,Be Flexible,Select a small piece of the task and start there
+            Think about the reward when the task gets completed.
+            </p>
+            
+                <!-- Button to show/hide calendar -->
+                <button id="toggle-calendar" class="btn btn-primary text-xl px-6">Show Calendar</button>
+            
+                <div id="calendar-container" style="display: none;">
+                <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&ctz=UTC&showPrint=0&src=bmFpbWFraGFuYW05NjJAZ21haWwuY29t" 
+                    style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no">
+                </iframe>
+            </div>
+        </div>
+        <!-- img  -->
+        <div>
+          <img
+            class="w-full h-[450px] md:h-auto  "
+            src="./image/homeback.avif"
+            alt=""
+          />
+        </div>
+      </section>
+      <!--  Categories  -->
+      <div class="max-w-full mx-auto bg-white p-6 rounded-lg shadow-lg md:h-full">
+        <h2 class="text-2xl font-bold mb-4 text-center">Task Management Overview</h2>
+    
+        <!-- Horizontal Box Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <!-- Task Summary -->
+            <div class="p-4 bg-blue-100 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-center mb-2">Task Summary</h3>
+                <div class="space-y-2 text-center">
+                    <p class="text-lg font-semibold">Total Tasks: <span class="font-bold">50</span></p>
+                    <p class="text-lg font-semibold">Pending: <span class="font-bold text-yellow-600">20</span></p>
+                    <p class="text-lg font-semibold">Overdue: <span class="font-bold text-red-600">5</span></p>
+                </div>
+            </div>
+    
+            <!-- Task Progress -->
+            <div class="p-4 bg-green-100 rounded-lg shadow-md sm:flex-row sm:items-center sm:gap-6 sm:py-4">
+                <h3 class="text-lg font-semibold text-center mb-2">Task Progress</h3>
+                <div class="w-full bg-gray-200 rounded-full h-6">
+                    <div class="bg-blue-500 h-6 rounded-full text-white text-center text-sm" style="width: 60%;">
+                        60% Completed
+                        <ul class="list-disc pl-5 text-red-600 sm:flex-row sm:items-center sm:gap-6 sm:py-4">
+                            <li>Due tasks</li>
+                            <li>Completed Tasks</li>
+                            
+                        </ul>   
+               
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Team Collaboration -->
+            <div class="p-4 bg-yellow-100 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold text-center mb-2">Team Collaboration</h3>
+                <ul class="list-disc pl-5">
+                    <li>✅ Naima completed "First task"</li>
+                    <li>🛠️ Rim assigned you "Update Website"</li>
+                    <li>📢 You assigned "New team member" to Team</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+
+
+      </section>
+       </main>
+
+<!--js for calender-->
+       <script>
+        // Get elements
+        const toggleButton = document.getElementById("toggle-calendar");
+        const calendarContainer = document.getElementById("calendar-container");
+    
+        // Toggle function
+        toggleButton.addEventListener("click", function() {
+            if (calendarContainer.style.display === "none" || calendarContainer.style.display === "") {
+                calendarContainer.style.display = "block";
+                toggleButton.innerText = "Hide Calendar";
+            } else {
+                calendarContainer.style.display = "none";
+                toggleButton.innerText = "Show Calendar";
+            }
+        });
+    </script>
+
+
+    
+    
+    
+       <!--section2 for another card-->
+
+    <!-- Section 1: Trending Pet Products -->
+<section class="md:bg-[#FFF9F4] md:py-16 relative z-10">
+    <div class="container mx-auto px-6 my-20">
+        <h1 class="adlam-display-regular text-2xl md:text-4xl text-[#111111] font-medium mb-6">
+            Trending Pet Products
+        </h1>
+
+        <div class="grid gap-5 md:gap-4 grid-cols-1 md:flex">
+            <!-- Main Card -->
+            <div class="bg-[#F9DF8A] p-6 rounded-xl shadow-lg md:w-[70%] relative">
+                <div class="space-y-3">
+                    <h1 class="text-xl md:text-2xl font-semibold">Upload your task here</h1>
+                    <p class="text-sm md:text-xl font-light">
+                        Make a choice which task has<br> less handpicked for
+                    </p>
+                </div>
+                
+            </div>
+
+            <!-- Other Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 w-full">
+                <!-- Project Management Card -->
+                <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-lg border-2">
+                    <div>
+                        <div class="flex gap-2 items-center">
+                            <i class="fa-solid fa-star text-[#FFC107]"></i>
+                            <h1 class="text-lg">Project Management</h1>
+                        </div>
+                        <h1 class="text-medium font-semibold">Date</h1>
+                        <p class="text-sm">
+                            From initiation to completion, Trello makes it easy to monitor every aspect of your next project.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Meetings Card -->
+                <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-lg border-2">
+                    <div>
+                        <div class="flex gap-2 items-center">
+                            <i class="fa-solid fa-star text-[#FFC107]"></i>
+                            <h1 class="text-medium">Meetings</h1>
+                        </div>
+                        <h1 class="text-sm font-semibold">Date and Time</h1>
+                        <p class="text-sm">
+                            It’s time to create a zero-tolerance policy for meetings that interrupt work instead of moving it forward.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Assignment Card -->
+                <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-lg border-2">
+                    <div>
+                        <div class="flex gap-2 items-center">
+                            <i class="fa-solid fa-star text-[#FFC107]"></i>
+                            <h1 class="text-sm">Assignment</h1>
+                        </div>
+                        <h1 class="text-sm font-semibold">Submission Date</h1>
+                        <p class="text-sm">
+                            Make a to-do list for your assignment and fix a date so you can submit it on time.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container mx-auto px-4 relative z-10 -mt-24">
+    <div class="flex flex-col md:flex-row items-center bg-[#FFF9F4] rounded-xl shadow-lg p-5 gap-10 md:gap-12 -mt-24">
+       
+        <p class="text-center font-light">
+            Exclusive training tips, tricks, and more.
+        </p>
+        <!-- Notification Subscription -->
+        <div class="flex flex-col justify-center items-center place-content-end md:items-start space-y-9">
+            <h1 class="adlam-display-regular text-xl md:text-2xl font-bold">
+                Get Deadline Notification
+            </h1>
+            <p class="text-center font-light flex-row">
+                Exclusive training tips, tricks, and more.
+            </p>
+            <input type="email" placeholder="Enter email..." class="py-4 px-12 bg-white border rounded-md shadow-sm w-[90%]">
+            <button class="btn btn-warning bg-[#FFDC26] px-6 text-xl">
+                Subscribe
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+<!--
+<section>
+<div class="flex flex-col justify-center items-center md:items-start space-y-4">
+<img class="origin-center rotate-45 " src="/c1-assets/cute-dog-mid.png"/>
+<img class="origin-top-left rotate-12 " src="/c1-assets/cute-pet-mid.png"/>
+<img class="origin-bottom -rotate-12 " src="/c1-assets/cute-pet-small.png"/>
+</div>
+</section>-->
+
+      
+    <footer class="bg-[#FFDC2680] pt-80 md:pt-60 pb-28">
+
+      <div class="container mx-auto px-6 flex flex-col justify-between md:flex-row  gap-6">
+
+          <div class="space-y-3">
+              <div class="flex gap-2 items-center">
+                  <img src="./c1-assets/logo-footer.png" alt="">
+
+                  <h1 class="text-2xl font-bold">Browse Task Management System</h1>
+              </div>
+              <p class="font-medium">Discover a world of knowledge, experiences, and <br> intellegence
+            <br> with your team.
+              </p>
+          </div>
+
+    
+
+          <div class="space-y-3">
+           
+            <h1 class="font-medium md:pt-16">Follows Us</h1>
+            
+              <div class="flex gap-3 text-xl">
+                 <i class="fa-brands fa-facebook"></i>
+              <i class="fa-brands fa-instagram"></i>
+                  <i class="fa-brands fa-linkedin"></i>
+                  <i class="fa-brands fa-youtube"></i>
+                
+              </div>
+
+          </div>
+
+
+      </div>
+
+  </footer>
+
+
+  
+
+</body>
+</html>

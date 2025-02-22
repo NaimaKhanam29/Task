@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a task</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        .search-container {
+            text-align: center;
+            margin: 50px 0;
+        }
+        .search-container input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        .search-container button {
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-container button:hover {
+            background-color: #555;
+        }
+        .task-results {
+            margin: 20px;
+            text-align: center;
+        }
+        .task-item {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Task Management System</h1>
+</header>
+
+<div class="search-container">
+    <h2>Search for a Task</h2>
+    <input type="text" id="search-query" placeholder="Enter task name" onkeyup="searchTasks()">
+    <button onclick="searchTasks()">Search</button>
+</div>
+
+<div class="task-results" id="task-results">
+    <p>Search results will appear here...</p>
+</div>
+
+<script>
+    function searchTasks() {
+        const query = document.getElementById('search-query').value;
+
+        if (query.length > 2) {
+            fetch(`/search-tasks?query=${encodeURIComponent(query)}`)
+                .then(response => response.json())
+                .then(data => {
+                    const resultsContainer = document.getElementById('task-results');
+                    if (data.length === 0) {
+                        resultsContainer.innerHTML = '<p>No tasks found.</p>';
+                    } else {
+                        resultsContainer.innerHTML = '';
+                        data.forEach(task => {
+                            const taskDiv = document.createElement('div');
+                            taskDiv.classList.add('task-item');
+                            taskDiv.innerHTML = `
+                                <h3>${task.name}</h3>
+                                <p>${task.description}</p>
+                                <p><strong>Status:</strong> ${task.status}</p>
+                            `;
+                            resultsContainer.appendChild(taskDiv);
+                        });
+                    }
+                })
+                .catch(err => console.log('Error fetching tasks:', err));
+        } else {
+            document.getElementById('task-results').innerHTML = '<p>Start typing to search...</p>';
+        }
+    }
+</script>
+
+</body>
+</html>

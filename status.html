@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('./image/homeback.avif') no-repeat center center fixed;
+            background-size: cover;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+        .status {
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+        }
+        .healthy {
+            background-color: #28a745;
+            color: white;
+        }
+        .issue {
+            background-color: #dc3545;
+            color: white;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .card {
+            padding: 20px;
+            width: 120px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card h3 {
+            margin: 0;
+            font-size: 20px;
+        }
+        .card p {
+            font-size: 24px;
+            font-weight: bold;
+            margin: 5px 0 0;
+            color: #007bff;
+        }
+        .icon {
+            width: 50px;
+            height: 50px;
+        }
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            font-size: 18px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .nav-links a:hover {
+            color: #007bff;
+        }
+        .nav-icons img {
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        .buttons a {
+            padding: 10px 20px;
+            background: #FFDC26;
+            color: black;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav>
+        <div>
+            <img src="./image/icon.png" alt="Logo" class="icon">
+            <span class="text-2xl font-semibold">Manage<span style="color: #FFDC26;">Your</span>Tasks</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="FindaTask.html">Find a task</a></li>
+            <li><a href="#">Status</a></li>
+            <li><a href="setadate.html">Set a date</a></li>
+            <li><a href="about.html">About Us</a></li>
+        </ul>
+        <div class="nav-icons">
+            <img src="./image/bell.png" alt="Notifications">
+            <img src="./image/search.png" alt="Search">
+        </div>
+        <div class="buttons">
+            <a href="registration.html">Register</a>
+            <a href="login.html">Login</a>
+        </div>
+    </nav>
+
+    <!-- Task Status Container -->
+    <div class="container">
+        <h1>Task Management System Status</h1>
+        <img src="./image/icon.png" alt="System Icon" class="icon">
+        <p class="status healthy">System Status: Healthy</p>
+
+        <div class="stats">
+            <div class="card">
+                <h3>Active Tasks</h3>
+                <p>12</p>
+            </div>
+            <div class="card">
+                <h3>Completed Tasks</h3>
+                <p>34</p>
+            </div>
+            <div class="card">
+                <h3>Pending Tasks</h3>
+                <p>5</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=ADLaM+Display&family=Sora:wght@100..800&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/98c9c535e9.js" crossorigin="anonymous"></script>
+
+    <style>
+        /* Custom font classes */
+        .adlam-font { font-family: 'ADLaM Display', sans-serif; }
+        .sora-font { font-family: 'Sora', sans-serif; }
+    </style>
+
+</head>
+<body class="bg-gray-100">
+    <header>
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16" />
+                </svg>
+              </div>
+              <ul
+                tabindex="0"
+                class="menu menu-sm dropdown-content bg-base-100 text-xl rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                <li><a>Find a task</a></li>
+              <li><a>Status</a></li>
+              <li><a>Set a date</a></li>
+              <li><a href="about.html">About Us</a></li>
+              </ul>
+            </div>
+            <img src="./image/icon.png" alt="" />
+            <a class="text-2xl font-semibold text-[#111111]">Manage<span class="text-[#FFDC26]">Your</span>Tasks</a>
+      
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 text-xl">
+              <li><a href="home.html">Home</a></li>
+              <li><a>Find a task</a></li>
+              <li><a>Status</a></li>
+              <li><a href="setadate.html">Set a date</a></li>
+              <li><a href="about.html">About Us</a></li>
+      
+            </ul>
+          </div>
+          <div class="navbar-end items-center gap-4">
+              <img src="./image/bell.png" alt="" />
+              <img src="./image/search.png" alt="" />
+              <a href="registration.html" class="btn bg-yellow-400 px-6 text-xl normal-case">
+                  Registration
+              </a>
+              <a href="login.html" class="btn bg-yellow-400 px-6 text-xl normal-case">
+                  Login
+              </a>
+             
+          </div>
+          
+            
+          </div>
+        </div>
+       
+      
+      
+      
+         
+        
+        
+      </header>
+
+    <main class="flex flex-col items-center mt-10">
+
+        <!-- Banner Section -->
+        <section class="container px-6 mx-auto my-16 flex flex-col">
+            <div class="space-y-4 md:space-y-6">
+                <h1 class="adlam-font text-2xl md:text-6xl font-medium text-[#111111]">
+                    Manage your task,<br> without facing <br>any difficulties
+                </h1>
+                <p class="text-xs md:text-xl text-[#111111] font-light w-[65%] md:w-[50%]">
+                    Create To-do Lists, prioritize tasks, and stay productive!
+                </p>
+
+                <!-- Calendar Button -->
+                <div class="flex justify-center items-center">
+                    <button id="toggle-calendar" class="btn btn-primary text-xl px-6">Show Calendar</button>
+                </div>
+                
+                <!-- Calendar Embed -->
+                <div id="calendar-container" style="display: none;">
+                    <iframe src="https://calendar.google.com/calendar/embed?src=YOUR_CALENDAR_ID&ctz=UTC"
+                        style="border:solid 1px #777" width="800" height="600" frameborder="0" scrolling="no">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Banner Image -->
+            <div>
+                <img class="w-full h-[450px] md:h-auto" src="./image/homeback.avif" alt="Task Management">
+            </div>
+        </section>
+
+        <!-- Task Management Overview -->
+        <div class="max-w-full mx-auto bg-white p-6 rounded-lg shadow-lg md:h-full">
+            <h2 class="text-2xl font-bold mb-4 text-center">Task Management Overview</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Task Summary -->
+                <div class="p-4 bg-blue-100 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-center mb-2">Task Summary</h3>
+                    <p class="text-lg font-semibold">Total Tasks: <span class="font-bold">50</span></p>
+                    <p class="text-lg font-semibold">Pending: <span class="font-bold text-yellow-600">20</span></p>
+                    <p class="text-lg font-semibold">Overdue: <span class="font-bold text-red-600">5</span></p>
+                </div>
+
+                <!-- Task Progress -->
+                <div class="p-4 bg-green-100 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-center mb-2">Task Progress</h3>
+                    <div class="w-full bg-gray-200 rounded-full h-6">
+                        <div class="bg-blue-500 h-6 rounded-full text-white text-center text-sm" style="width: 60%;">60% Completed</div>
+                    </div>
+                </div>
+
+                <!-- Team Collaboration -->
+                <div class="p-4 bg-yellow-100 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-center mb-2">Team Collaboration</h3>
+                    <ul class="list-disc pl-5">
+                        <li>✅ Naima completed "First task"</li>
+                        <li>🛠️ Rim assigned you "Update Website"</li>
+                        <li>📢 You assigned "New team member" to Team</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Upload Task Section -->
+        <section class="md:bg-[#FFF9F4] md:py-16 relative z-10">
+            <div class="container mx-auto px-6 my-20">
+                <h1 class="adlam-font text-2xl md:text-4xl text-[#111111] font-medium mb-6">
+                    Upload your task here
+                </h1>
+
+                <div class="grid gap-5 md:gap-4 grid-cols-1 md:flex">
+                    <div class="bg-[#F9DF8A] p-6 rounded-xl shadow-lg md:w-[70%]">
+                        <p class="text-sm md:text-xl font-light">
+                            Choose a task and track your progress efficiently.
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-2 w-full">
+                        <!-- Project Management -->
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-lg border-2">
+                            <i class="fa-solid fa-star text-[#FFC107]"></i>
+                            <div>
+                                <h1 class="text-lg">Project Management</h1>
+                                <p class="text-sm">Monitor your project from start to finish.</p>
+                            </div>
+                        </div>
+
+                        <!-- Meetings -->
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-lg border-2">
+                            <i class="fa-solid fa-star text-[#FFC107]"></i>
+                            <div>
+                                <h1 class="text-lg">Meetings</h1>
+                                <p class="text-sm">Schedule and track meetings efficiently.</p>
+                            </div>
+                        </div>
+
+                        <!-- Assignment -->
+                        <div class="flex items-center gap-4 bg-white p-4 rounded-xl shadow-lg border-2">
+                            <i class="fa-solid fa-star text-[#FFC107]"></i>
+                            <div>
+                                <h1 class="text-lg">Assignments</h1>
+                                <p class="text-sm">Plan and submit your assignments on time.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- JavaScript for Calendar -->
+    <script>
+        document.getElementById("toggle-calendar").addEventListener("click", function () {
+            const calendar = document.getElementById("calendar-container");
+            calendar.style.display = (calendar.style.display === "none") ? "block" : "none";
+            this.innerText = calendar.style.display === "block" ? "Hide Calendar" : "Show Calendar";
+        });
+    </script>
+
+</body>
+</html>
