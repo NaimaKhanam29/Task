@@ -134,23 +134,95 @@
     <div class="container">
         <h1>Task Management System Status</h1>
         <img src="./image/icon.png" alt="System Icon" class="icon">
-        <p class="status healthy">System Status: Healthy</p>
-
+        <p id="system-status" class="status healthy">System Status: Healthy</p>
+    
         <div class="stats">
             <div class="card">
                 <h3>Active Tasks</h3>
-                <p>12</p>
+                <p id="active-count">0</p>
             </div>
             <div class="card">
                 <h3>Completed Tasks</h3>
-                <p>34</p>
+                <p id="completed-count">0</p>
             </div>
             <div class="card">
                 <h3>Pending Tasks</h3>
-                <p>5</p>
+                <p id="pending-count">0</p>
             </div>
         </div>
+    
+        <div style="margin-top: 30px;">
+            <input type="text" id="task-input" placeholder="Enter a new task..." style="padding: 10px; width: 60%; border-radius: 5px; border: 1px solid #ccc;">
+            <button onclick="addTask()" style="padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px;">Add Task</button>
+        </div>
+    
+        <ul id="task-list" style="list-style: none; padding: 0; margin-top: 20px;"></ul>
     </div>
-
+  
+    
+    <script>
+        const activeCount = document.getElementById("active-count");
+        const completedCount = document.getElementById("completed-count");
+        const pendingCount = document.getElementById("pending-count");
+        const taskList = document.getElementById("task-list");
+    
+        let tasks = [];
+    
+        function updateStats() {
+            const active = tasks.filter(task => !task.completed).length;
+            const completed = tasks.filter(task => task.completed).length;
+            const pending = tasks.length - completed;
+    
+            activeCount.textContent = active;
+            completedCount.textContent = completed;
+            pendingCount.textContent = pending;
+        }
+    
+        function addTask() {
+            const input = document.getElementById("task-input");
+            const taskText = input.value.trim();
+            if (taskText === "") return;
+    
+            const task = { text: taskText, completed: false };
+            tasks.push(task);
+            input.value = "";
+    
+            renderTasks();
+            updateStats();
+        }
+    
+        function toggleComplete(index) {
+            tasks[index].completed = !tasks[index].completed;
+            renderTasks();
+            updateStats();
+        }
+    
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            renderTasks();
+            updateStats();
+        }
+    
+        function renderTasks() {
+            taskList.innerHTML = "";
+            tasks.forEach((task, i) => {
+                const li = document.createElement("li");
+                li.style.margin = "10px 0";
+                li.innerHTML = `
+                    <span style="text-decoration: ${task.completed ? 'line-through' : 'none'};">
+                        ${task.text}
+                    </span>
+                    <button onclick="toggleComplete(${i})" style="margin-left: 10px; background: ${task.completed ? '#ffc107' : '#28a745'}; color: white; border: none; padding: 5px 10px; border-radius: 4px;">
+                        ${task.completed ? 'Undo' : 'Complete'}
+                    </button>
+                    <button onclick="deleteTask(${i})" style="margin-left: 5px; background: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px;">
+                        Delete
+                    </button>
+                `;
+                taskList.appendChild(li);
+            });
+        }
+    </script>
+    
 </body>
 </html>

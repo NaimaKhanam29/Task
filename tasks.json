@@ -1,0 +1,18 @@
+[
+    {
+      "name": "Design Homepage",
+      "description": "Create the homepage layout using Tailwind CSS.",
+      "status": "Pending"
+    },
+    {
+      "name": "Fix Bug #42",
+      "description": "Resolve the login issue in Firefox browser.",
+      "status": "Completed"
+    },
+    {
+      "name": "Write Documentation",
+      "description": "Document the task management API endpoints.",
+      "status": "In Progress"
+    }
+  ]
+  
